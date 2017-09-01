@@ -1044,3 +1044,19 @@ class CNAMERecord(InfobloxObject):
                                                           'zone']
     _return_fields = ['canonical', 'name', 'view', 'extattrs']
     _shadow_fields = ['_ref']
+
+
+class Lease(InfobloxObject):
+    _fields = ['address', 'billing_class', 'binding_state', 'client_hostname',
+               'cltt', 'discovered_data', 'ends', 'hardware', 'ipv6_duid',
+               'ipv6_iaid', 'ipv6_preferred_lifetime', 'ipv6_prefix_bits',
+               'is_invalid_mac', 'ms_ad_user_data', 'network', 'network_view',
+               'never_ends', 'never_starts', 'next_binding_state', 'on_commit',
+               'on_expiry', 'on_expiry', 'on_release', 'option', 'protocol',
+               'remote_id', 'served_by', 'server_host_name', 'starts', 'tsfp',
+               'tstp', 'uid', 'username', 'variable']
+    _search_for_update_fields = ['address', 'hardware']
+    _all_searchable_fields = _search_for_update_fields
+    _shadow_fields = ['_ref']
+    _infoblox_type = 'lease'
+    _return_fields = ['address', 'network_view', 'ext_attrs']
