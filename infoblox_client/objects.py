@@ -561,7 +561,7 @@ class HostRecordV4(HostRecord):
     _all_searchable_fields = _search_for_update_fields
     _updateable_search_fields = ['name']
     _shadow_fields = ['_ref', 'ipv4addr']
-    _return_fields = ['ipv4addrs', 'extattrs']
+    _return_fields = ['ipv4addrs', 'network', 'extattrs']
     _remap = {'ip': 'ipv4addrs',
               'ips': 'ipv4addrs'}
     _ip_version = 4
@@ -1046,6 +1046,7 @@ class CNAMERecord(InfobloxObject):
     _shadow_fields = ['_ref']
 
 
+# import importlib; import infoblox_client; importlib.reload(infoblox_client); import infoblox_client; importlib.reload(infoblox_client.objects); import infoblox_client.objects; from infoblox_client.objects import Lease
 class Lease(InfobloxObject):
     _fields = ['address', 'billing_class', 'binding_state', 'client_hostname',
                'cltt', 'discovered_data', 'ends', 'hardware', 'ipv6_duid',
@@ -1059,4 +1060,4 @@ class Lease(InfobloxObject):
     _all_searchable_fields = _search_for_update_fields
     _shadow_fields = ['_ref']
     _infoblox_type = 'lease'
-    _return_fields = ['address', 'network_view', 'ext_attrs']
+    _return_fields = ['address', 'hardware', 'binding_state', 'network', 'network_view']
