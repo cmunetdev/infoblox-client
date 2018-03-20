@@ -561,7 +561,7 @@ class HostRecordV4(HostRecord):
     _all_searchable_fields = _search_for_update_fields
     _updateable_search_fields = ['name']
     _shadow_fields = ['_ref', 'ipv4addr']
-    _return_fields = ['ipv4addrs', 'extattrs']
+    _return_fields = ['ipv4addrs', 'network', 'extattrs']
     _remap = {'ip': 'ipv4addrs',
               'ips': 'ipv4addrs'}
     _ip_version = 4
@@ -1044,3 +1044,20 @@ class CNAMERecord(InfobloxObject):
                                                           'zone']
     _return_fields = ['canonical', 'name', 'view', 'extattrs']
     _shadow_fields = ['_ref']
+
+
+# import importlib; import infoblox_client; importlib.reload(infoblox_client); import infoblox_client; importlib.reload(infoblox_client.objects); import infoblox_client.objects; from infoblox_client.objects import Lease
+class Lease(InfobloxObject):
+    _fields = ['address', 'billing_class', 'binding_state', 'client_hostname',
+               'cltt', 'discovered_data', 'ends', 'hardware', 'ipv6_duid',
+               'ipv6_iaid', 'ipv6_preferred_lifetime', 'ipv6_prefix_bits',
+               'is_invalid_mac', 'ms_ad_user_data', 'network', 'network_view',
+               'never_ends', 'never_starts', 'next_binding_state', 'on_commit',
+               'on_expiry', 'on_expiry', 'on_release', 'option', 'protocol',
+               'remote_id', 'served_by', 'server_host_name', 'starts', 'tsfp',
+               'tstp', 'uid', 'username', 'variable']
+    _search_for_update_fields = ['address', 'hardware']
+    _all_searchable_fields = _search_for_update_fields
+    _shadow_fields = ['_ref']
+    _infoblox_type = 'lease'
+    _return_fields = ['address', 'hardware', 'binding_state', 'network', 'network_view']
